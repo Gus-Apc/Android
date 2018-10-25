@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Metodos Numericos</string>
+    <string name="App_title">METODOS NUMERICOS</string>
+    <string name="gauss_jordan">Gauss - Jordan</string>
+    <string name="bairstow">Bairstow</string>
+    <string name="reg_lin_mult">Regresion lLineal Multiple</string>
+    <string name="calculobtn">Calcular</string>
+
+    <string-array name="tamano">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+</resources>
