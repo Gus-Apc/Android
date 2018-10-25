@@ -17,10 +17,10 @@ public class DynamicViewsGJArr {
 
     //Metodos para crear la matriz
 
-    public EditText cantidadesEditText(Context context){
+    public EditText cantidadesEditText(Context context, int j){
         final ViewGroup.LayoutParams lparams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         final EditText editText = new EditText(context);
-        int id = 0;
+        int id = j;
         editText.setId(id);
         editText.setMinEms(2);
         editText.setTextColor(Color.rgb(0,0,0));

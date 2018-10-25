@@ -20,7 +20,8 @@ public class GaussJordanActivity extends AppCompatActivity implements AdapterVie
     DynamicViewsGJArr dnv;
     Context context;
     //Button calcularBtn;
-
+    ArrayAdapter<String> myAdapter;
+    int size = 3;
     //Codigo C++
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -42,13 +43,24 @@ public class GaussJordanActivity extends AppCompatActivity implements AdapterVie
 
         arrSizCombo.setOnItemSelectedListener(this);
         //Obtenemos los valores que llenaran al combobox
-        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(GaussJordanActivity.this,
+        myAdapter = new ArrayAdapter<String>(GaussJordanActivity.this,
                 //Creamos una lista que guarde el spinner y sera llenada con el recurso String tamano que es una lista
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.tamano));
         //Asignamos el tipo de spinner como un dropdown usando un estilo desde android
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Asignamos los datos del adapter al spinner
         arrSizCombo.setAdapter(myAdapter);
+
+
+        final Button calcularBtn = (Button) findViewById(R.id.calcularBtn);
+        calcularBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // la cantidad de edittext es el numero de size que corresponde a los id's
+                final EditText editText = findViewById(myLayout.getChildAt(0).getId());
+                Toast.makeText(getApplicationContext(), editText.getText(), Toast.LENGTH_LONG).show();
+            }
+        });
+
 
 
     }
@@ -60,6 +72,7 @@ public class GaussJordanActivity extends AppCompatActivity implements AdapterVie
         //MATRIZ NxN
         //Creando la matriz de manera dinamica con el valor dado por el combobo
         int tamano = Integer.parseInt(item);
+        size = tamano;
         //Mostrar lo seleccionado en le comboboc
         Toast.makeText(parent.getContext(), "Selected : " + item, Toast.LENGTH_LONG).show();
 
@@ -70,9 +83,10 @@ public class GaussJordanActivity extends AppCompatActivity implements AdapterVie
 
             for(int j = 0; j<tamano;j++){
                 //myLayout.addView(dnv.descriptionTextView(getApplicationContext(),"X" + j),j);
-                myLayout.addView(dnv.cantidadesEditText(getApplicationContext()),j);
+                myLayout.addView(dnv.cantidadesEditText(getApplicationContext(), j),j);
             }
         }
+
        // myLayout.addView(dnv.descriptionTextView(getApplicationContext(),"Item No. 1"),3);
         //myLayout.addView(dnv.cantidadesEditText(getApplicationContext()),0);
        // myLayout.addView(dnv.extraTextView(getApplicationContext(),"34.00"),5);
