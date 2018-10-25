@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class MethodSelectMain extends AppCompatActivity {
 
+    
     //Codigo C++
     // Used to load the 'native-lib' library on application startup.
     static {

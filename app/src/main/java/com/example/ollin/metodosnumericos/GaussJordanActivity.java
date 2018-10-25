@@ -13,13 +13,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class GaussJordanActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class GaussJordanActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private GridLayout myLayout;
     Spinner arrSpinner;
     DynamicViewsGJArr dnv;
     Context context;
-    Button calcularBtn;
+    //Button calcularBtn;
 
     //Codigo C++
     // Used to load the 'native-lib' library on application startup.
@@ -33,7 +33,7 @@ public class GaussJordanActivity extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_gauss_jordan);
         myLayout = (GridLayout)findViewById(R.id.matrices);
         arrSpinner = (Spinner)findViewById(R.id.arrSize);
-        calcularBtn = (Button)findViewById(R.id.calcularBtn);
+        //calcularBtn = (Button)findViewById(R.id.calcularBtn);
 
         DynamicViewsGJArr dinViewArr;
         //Combobox
@@ -49,8 +49,6 @@ public class GaussJordanActivity extends AppCompatActivity implements AdapterVie
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Asignamos los datos del adapter al spinner
         arrSizCombo.setAdapter(myAdapter);
-
-       calcularBtn.setOnClickListener(this);
 
 
     }
@@ -72,11 +70,11 @@ public class GaussJordanActivity extends AppCompatActivity implements AdapterVie
 
             for(int j = 0; j<tamano;j++){
                 //myLayout.addView(dnv.descriptionTextView(getApplicationContext(),"X" + j),j);
-                myLayout.addView(dnv.cantidadesEditText(getApplicationContext()),j+1);
+                myLayout.addView(dnv.cantidadesEditText(getApplicationContext()),j);
             }
         }
        // myLayout.addView(dnv.descriptionTextView(getApplicationContext(),"Item No. 1"),3);
-        //myLayout.addView(dnv.cantidadesEditText(getApplicationContext()),4);
+        //myLayout.addView(dnv.cantidadesEditText(getApplicationContext()),0);
        // myLayout.addView(dnv.extraTextView(getApplicationContext(),"34.00"),5);
 
     }
@@ -86,22 +84,4 @@ public class GaussJordanActivity extends AppCompatActivity implements AdapterVie
 
     }
 
-    @Override
-    public void onClick(View v) {
-        //dnv = new DynamicViewsGJArr(context);
-        /*int tamano = Integer.parseInt(arrSpinner.getSelectedItem().toString());
-        int arr = tamano * tamano;
-        int[] matriz = new int[arr];
-        String texto;
-        for (int i=0;i<tamano;i++){
-
-            for(int j = 0; j<tamano;j++){
-                //myLayout.addView(dnv.descriptionTextView(getApplicationContext(),"X" + j),j);
-                //myLayout.addView(dnv.cantidadesEditText(getApplicationContext()),j+1);
-
-                texto = dnv.cantidadesEditText.toString();
-                Toast.makeText(this,"Selected : " + texto, Toast.LENGTH_LONG).show();
-            }
-        }*/
-    }
 }
